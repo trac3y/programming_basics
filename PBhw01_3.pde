@@ -19,8 +19,8 @@ int textColor;
 // PARTICLE CONSTANTS
 float PARTICLE_DIAMETER = 40;
 float spring = 0.001;
-float gravity = 0.8;
-float friction = -0.9;
+float gravity = 0.2;
+float friction = -0.6;
 ArrayList<Particle> particles = new ArrayList<Particle>();
 int SPAWN_SIZE = 50;
 
@@ -33,6 +33,8 @@ void setup() {
   textAlign(LEFT);
   textColor = 255;  
   words = "Hi, \nplease click.";
+  font = loadFont("AGHelveticaBold-120.vlw");
+  textFont(font, fontSize);
 }
 
 void draw() {
@@ -49,9 +51,6 @@ void draw() {
       curr.display();
     }
   }
-
-  font = loadFont("AGHelveticaBold-120.vlw");
-  textFont(font, fontSize);
 
   //fill(textOp);
   fill(textColor);
@@ -134,8 +133,8 @@ class Particle {
   Particle(float xin, float yin, int iid, ArrayList<Particle> othersin) {
     x = xin;
     y = yin;
-    vx = random(-2, 2);
-    vy = random(0, 3);
+    vx = random(-3, 3);
+    vy = random(-4, 4);
     diameter = PARTICLE_DIAMETER;
     id = iid;
     lifespan = 255;
@@ -196,4 +195,3 @@ class Particle {
     ellipse(x, y, diameter, diameter);
   }
 }
-
